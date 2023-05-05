@@ -26,6 +26,7 @@ This took me 2 hours, expected it to take me 2.5 hours
 
 This app is a full stack application that has a API call and uses docker that has custom permissions for api and uses postgresql database. 
 05/03 - added auth and production server 
+05/05 - this backend application now using a cloud database and hosts information for Cookie Stands aross the world 
 
 ## License
 
