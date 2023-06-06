@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import environ
+from datetime import timedelta
 
 
 env = environ.Env(
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     #3rd party
     'rest_framework',
     'whitenoise',
+    'corsheaders',
 
 ]
 
@@ -156,13 +158,15 @@ REST_FRAMEWORK = {
     ],
 }
 
-# SIMPLE_JWT = {
-#     "ACCESS_TOKEN_LIFETIME": timedelta(
-#         seconds=60 * 60
-#     ),  # lasts for 60 minutes
-# }
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(
+        seconds=60 * 60
+    ),  # lasts for 60 minutes
+}
 
 # CORS_ORIGIN_WHITELIST = tuple(env.list('ALLOWED_ORIGINS'))
 CORS_ALLOW_ALL_ORIGINS = env.bool('ALLOW_ALL_ORIGINS')
 # CSRF_TRUSTED_ORIGINS = tuple(env.list('CSRF_TRUSTED_ORIGINS'))
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_METHODS = ['GET', 'POST',]
+CORS_ALLOWED_HEADERS = [ 'X-CSRFToken', 'Content-Type', ]
